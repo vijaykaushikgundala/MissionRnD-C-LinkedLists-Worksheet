@@ -4,7 +4,7 @@ OVERVIEW:  Given a single linked list (two digits as a node).Convert that to num
 
 INPUTS:  SLL head pointer
 
-OUTPUT: Create a number from the linked list given ,In each node there are two numbers ,digit1 and digit1 ,
+OUTPUT: Create a number from the linked list given ,In each node there are two numbers ,digit1 and digit2 ,
 So if the nodes are 12->34->56->78 , Final number would be 12345678 ( Integer)
 
 ERROR CASES:
@@ -22,5 +22,13 @@ struct node {
 };
 
 int convert_sll_2digit_to_int(struct node *head){
-	return 0;
+	int result=0;
+	struct node *temp;
+	temp = head;
+	while (temp != NULL)
+	{
+		result = result * 100 + (((temp->digit1) * 10) + temp->digit2);
+		temp = temp->next;
+	}
+	return result;
 }
